@@ -34,8 +34,8 @@ body { font-family:var(--font-body); background:var(--bg); color:var(--text); li
 /* NAV */
 nav {
   position:fixed; top:0; left:0; right:0; z-index:100;
-  background:rgba(19,19,19,0.85); backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border); padding:16px 0;
+  background:rgba(19,19,19,0.98); backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(82,69,52,0.0); padding:16px 0;
 }
 nav .container { display:flex; justify-content:space-between; align-items:center; }
 .logo { display:flex; align-items:center; gap:7px; text-decoration:none; }
@@ -53,16 +53,20 @@ nav .container { display:flex; justify-content:space-between; align-items:center
 /* HERO */
 .hero {
   display:flex; align-items:center; justify-content:center;
-  padding:140px 32px 72px; text-align:center; position:relative; overflow:hidden;
+  padding:140px 32px 32px; text-align:center; position:relative; overflow:hidden;
+}
+.hero::after {
+  content:"";
+  position:absolute; bottom:0; left:0; right:0; height:80px;
+  background:linear-gradient(to bottom, transparent, #131313);
+  pointer-events:none; z-index:0;
 }
 
 /* Grain texture overlay */
 .hero::before {
   content:'';
-  position:absolute; inset:0; z-index:0;
-  opacity:0.035;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-size:200px 200px;
+  position:absolute; top:0; left:0; right:0; height:100px; z-index:0;
+  background:linear-gradient(to bottom, #131313, transparent);
   pointer-events:none;
 }
 
@@ -76,8 +80,8 @@ nav .container { display:flex; justify-content:space-between; align-items:center
 /* Warm glow */
 .hero-glow {
   position:absolute; top:40%; left:50%; transform:translate(-50%,-50%);
-  width:900px; height:600px;
-  background:radial-gradient(ellipse at 50% 65%, rgba(245,166,35,0.22) 0%, rgba(245,166,35,0.08) 45%, transparent 72%);
+  width:900px; height:800px;
+  background:radial-gradient(ellipse at 50% 60%, rgba(245,166,35,0.18) 0%, rgba(245,166,35,0.05) 55%, transparent 80%);
   pointer-events:none; z-index:0;
 }
 
@@ -298,7 +302,7 @@ footer .container { display:flex; justify-content:space-between; align-items:cen
 </section>
 
 <!-- OUR WORK -->
-<section class="section" id="work">
+<section class="section" id="work" style="padding-top:48px;">
   <div class="container">
     <p class="section-label">Our Work</p>
     <h2 class="section-headline">See what we do</h2>
